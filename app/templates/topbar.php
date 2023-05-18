@@ -10,11 +10,18 @@
             <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
           </ul>
         </div>
+        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+                        <div class="input-group">
+                            <h5 style="color: black"><b>Dashboard</b></h5>
+                        </div>
+                    </div>
         <ul class="nav navbar-nav float-right">
-          <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon feather icon-maximize"></i></a></li>
 
-          <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-              <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $_SESSION['user']['username']; ?></span><span class="user-status">Available</span></div><span><img class="round" src="assets/images/portrait/small/avatar-s-11.png" alt="avatar" height="40" width="40" /></span>
+          <li class="dropdown dropdown-user nav-item" style="margin-top: 30px;" ><i class="feather icon-corner-up-left"></i><a href="?page=beranda">Ke Beranda |</a>
+          </li>
+    
+        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+            <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $_SESSION['user']['username']; ?></span><span class="user-status">Available</span></div><span><img class="round" src="assets/images/portrait/small/avatar-s-11.png" alt="avatar" height="40" width="40" /></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a>

@@ -15,7 +15,7 @@ $no = 1;
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Data Apoteker</h4>
-          <a href="?page=tambah-ruang" class="btn btn-primary round waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+          <a href="?page=tambah-apoteker" class="btn btn-primary round waves-effect waves-light"><i class="feather icon-plus-circle"></i>
             Tambah
           </a>
         </div>
@@ -47,8 +47,8 @@ $no = 1;
                       <td><?= $apoteker['alamat_apoteker']; ?></td>
                       <td><?= $apoteker['jk_apoteker']; ?></td>
                       <td>
-                        <a href="?page=edit-ruang&id=<?= $apoteker['id']; ?>"><i class="m-1 feather icon-edit-2"></i></a>
-                        <a href="?page=hapus-ruang&id=<?= $apoteker['id']; ?>" class="btn-hapus"><i class="feather icon-trash"></i></a>
+                        <a href="?page=edit-apoteker&id=<?= $apoteker['id']; ?>"><i class="m-1 feather icon-edit-2"></i></a>
+                        <a href="?page=hapus-apoteker&id=<?= $apoteker['id']; ?>" class="btn-hapus"><i class="feather icon-trash"></i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -62,4 +62,4 @@ $no = 1;
   </div>
 </section>
 <!-- User Table -->
-<?php $title = 'ruang'; ?>
+<?php $title = 'apoteker'; ?>

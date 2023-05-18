@@ -1,11 +1,21 @@
 <?php
 require_once 'app/functions/MY_model.php';
-$rekam_medik = get("SELECT * FROM rekam_mediks rm
-                    INNER JOIN pasiens ON rm.pasien_id = pasiens.id 
-                    ");
+
+$query = "SELECT rm.*, p.category_id, c.nama_kategori, pro.nama_prodi, f.nama_fakultas, p.nama_pasien, p.tgl_lhr_pasien, p.jk_pasien, b.no_bpjs
+          FROM rekam_mediks rm
+          INNER JOIN pasiens p ON rm.pasien_id = p.id
+          INNER JOIN tenkesehatans t ON rm.tenkesehatan_id = t.id
+          LEFT JOIN categories c ON p.category_id = c.id
+          LEFT JOIN mahasiswas m ON m.pasien_id = p.id
+          LEFT JOIN dosens d ON d.pasien_id = p.id
+          LEFT JOIN fakultas f ON (d.fakulta_id = f.id OR m.fakulta_id = f.id)
+          LEFT JOIN prodis pro ON pro.fakulta_id = f.id AND pro.id = m.prodi_id
+          LEFT JOIN bpjs b ON b.pasien_id = p.id";
+
+$result = mysqli_query($conn, $query);
+
 
 $no = 1;
-
 $title = 'rekam_medik';
 ?>
 
@@ -26,38 +36,45 @@ $title = 'rekam_medik';
               <table class="table table-striped dataex-html5-selectors">
                 <thead>
                   <tr>
-                  <th></th>
+                    <th></th>
                     <th>Nama</th>
                     <th>Umur</th>
                     <th>Kategori</th>
                     <th>Jenis Kelamin</th>
-                    <th>
-                      <i class="feather icon-settings"></i>
-                    </th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($rekam_medik as $rm) : ?>
-                    <tr>
-                     <td><?= $no++ ?></td>
-                      <td><?= $rm['nama_pasien']; ?></td>
-                      <td><?= $rm['umur_pasien']; ?></td>
-                      <td><?= $rm['kategori']; ?></td>
-                      <td><?= $rm['jk_pasien']; ?></td>
-                      <td>
-                        <?php
-                        $obats = mysqli_query($conn, "SELECT * FROM rm_obat JOIN obat ON rm_obat.obat_id = obat.id WHERE rm_id = '$rm[rm_id]'") or die(mysqli_error($conn));
-                        while ($obat = mysqli_fetch_assoc($obats)) {
-                          echo $obat['nama_obat'] . '<br>';
-                        }
-                        ?>
-                      </td>
-                      <td><?= $rm['nama_ruang']; ?></td>
-                      <td>
-                        <a href="?page=hapus-rekam-medis&id=<?= $rm['rm_id']; ?>" class="btn-hapus"><i class="feather icon-trash"></i></a>
-                      </td>
-                    </tr>
-                  <?php endforeach; ?>
+            
+
+<?php while ($rm = mysqli_fetch_assoc($result)) : ?>
+
+  <tr>
+    <td><?= $no++ ?></td>
+    <td><?= $rm['nama_pasien']; ?></td>
+    <td><?= date_diff(date_create($rm['tgl_lhr_pasien']), date_create())->y; ?> tahun</td>
+    <td>
+            <?= $rm['nama_kategori']; ?>
+            <?php if ($rm['category_id'] == 1 && isset($rm['nama_fakultas'])): ?>
+                <?= $rm['nama_fakultas']; ?>
+            <?php elseif ($rm['category_id'] == 3 && isset($rm['nama_fakultas']) && isset($rm['nama_prodi'])): ?>
+                <?= $rm['nama_fakultas']; ?> - <?= $rm['nama_prodi']; ?>
+            <?php elseif ($rm['category_id'] == 5 && isset($rm['no_bpjs'])) : ?>
+                <?= $rm['no_bpjs']; ?>
+            <?php endif; ?>
+        </td>
+
+    <td><?= $rm['jk_pasien']; ?></td>
+
+    <td>
+      <a href="?page=edit-rekam-medis&id=<?= $rm['id']; ?>"><i class="m-1 feather icon-edit-2"></i></a>
+      <a href="?page=hapus-rekam-medism&id=<?= $rm['id']; ?>" class="btn-hapus">
+        <i class="feather icon-trash"></i>
+      </a>
+    </td>
+  </tr>
+
+  <?php endwhile; ?>
                 </tbody>
               </table>
             </div>

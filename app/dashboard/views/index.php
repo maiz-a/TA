@@ -1,8 +1,8 @@
 <?php
 require_once 'app/functions/MY_model.php';
 
-$tenkes = mysqli_query($conn, "SELECT * FROM tenkesehatans");
-$count_tenkes = mysqli_num_rows($tenkes);
+$nakes = mysqli_query($conn, "SELECT * FROM tenkesehatans");
+$count_nakes = mysqli_num_rows($nakes);
 
 $pasien = mysqli_query($conn, "SELECT * FROM pasiens");
 $count_pasien = mysqli_num_rows($pasien);
@@ -26,8 +26,10 @@ $count_rekam_medik = mysqli_num_rows($rekam_medik);
               <i class="feather icon-users text-primary font-medium-5"></i>
             </div>
           </div>
-          <h2 class="text-bold-700 mt-1 mb-25"><?= $count_tenkes; ?></h2>
-          <p class="mb-0">Tenaga Kesehatan 1</p>
+          <a href="?page=pasien" >
+          <p class="mb-0" >Jumlah Pasien</p>
+          <h2 class="text-bold-700 mt-1 mb-25"><?= $count_pasien; ?></h2>
+          </a>
         </div>
         <div class="card-content">
           <!-- <div id="tenkes-chart"></div> -->
@@ -38,13 +40,15 @@ $count_rekam_medik = mysqli_num_rows($rekam_medik);
     <div class="col-lg-3 col-md-6 col-12">
       <div class="card">
         <div class="card-header d-flex flex-column align-items-start pb-0">
-          <div class="avatar bg-rgba-primary p-50 m-0">
+          <div class="avatar bg-rgba-success p-50 m-0">
             <div class="avatar-content">
-              <i class="feather icon-users text-primary font-medium-5"></i>
+              <i class="feather icon-users text-success font-medium-5"></i>
             </div>
           </div>
-          <h2 class="text-bold-700 mt-1 mb-25"><?= $count_pasien; ?></h2>
-          <p class="mb-0">Pasien</p>
+          <a href="?page=nakes">
+          <p class="mb-0">Jumlah Tenaga Kesehatan</p>
+          <h2 class="text-bold-700 mt-1 mb-25"><?= $count_nakes; ?></h2>
+          </a>
         </div>
         <div class="card-content">
           <!-- <div id="pasien-chart"></div> -->
@@ -55,13 +59,14 @@ $count_rekam_medik = mysqli_num_rows($rekam_medik);
     <div class="col-lg-3 col-md-6 col-12">
       <div class="card">
         <div class="card-header d-flex flex-column align-items-start pb-0">
-          <div class="avatar bg-rgba-primary p-50 m-0">
+          <div class="avatar bg-rgba-success p-50 m-0">
             <div class="avatar-content">
-              <i class="feather icon-users text-primary font-medium-5"></i>
+              <i class="feather icon-users text-success font-medium-5"></i>
             </div>
           </div>
+          <a href=""><p class="mb-0">Jumlah Apoteker</p>
           <h2 class="text-bold-700 mt-1 mb-25"><?= $count_apoteker; ?></h2>
-          <p class="mb-0">Apoteker</p>
+          </a>
         </div>
         <div class="card-content">
           <!-- <div id="ruang-chart"></div> -->
@@ -76,9 +81,11 @@ $count_rekam_medik = mysqli_num_rows($rekam_medik);
             <div class="avatar-content">
               <i class="feather icon-package text-warning font-medium-5"></i>
             </div>
-          </div>
+          </div> 
+          <a href="?rekam-medis">
+          <p class="mb-0">Rekam Medis</p>
           <h2 class="text-bold-700 mt-1 mb-25"><?= $count_rekam_medik; ?></h2>
-          <p class="mb-0">Rekam Medik</p>
+          </a>
         </div>
         <div class="card-content">
           <!-- <div id="obat-chart"></div> -->
@@ -87,6 +94,20 @@ $count_rekam_medik = mysqli_num_rows($rekam_medik);
     </div>
   </div>
 </section>
+
+<div class="card shadow p-3">
+            <div class="row">
+                <p class="font-weight-bold text-primary col-3">Tanggal: <span class="text-success">14 May 2023</span></p>
+                <p class="font-weight-bold text-primary col">Waktu: <span class="text-success">22:13:29</span></p>
+            </div>
+            <p class="font-weight-bold text-primary ">Jumlah pasien hari ini: <span class="text-success">0 orang</span></p>
+            <form action="http://localhost:8080/aplikasi/aplikasi-klinik/index.php">
+                <button class="btn btn-success btn-sm pl-2 pr-2" id="refresh"><i class="fas fa-sync-alt"></i> Refresh</button>
+            </form><br>
+            <h5 class="font-weight-bold text-primary">Daftar pasien hari ini:</h5>
+                            <center><br><h5 class="text-info">Belum ada pasien hari ini</h5><br></center>
+                    </div>
+    </div>
 <!-- Dashboard Analytics end -->
 <script>
   var count_tenkes = '<?php echo $count_tenkes; ?>';

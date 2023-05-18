@@ -2,17 +2,17 @@
 if (isset($_GET['page'])) {
 
 	switch ($_GET['page']) {
-		case 'dokter':
-			require_once 'app/dokter/views/index.php';
+		case 'nakes':
+			require_once 'app/nakes/views/index.php';
 			break;
-		case 'tambah-dokter':
-			require_once 'app/dokter/views/create.php';
+		case 'tambah-nakes':
+			require_once 'app/nakes/views/create.php';
 			break;
-		case 'edit-dokter':
-			require_once 'app/dokter/views/edit.php';
+		case 'edit-nakes':
+			require_once 'app/nakes/views/edit.php';
 			break;
-		case 'hapus-dokter':
-			require_once 'app/dokter/proses/delete.php';
+		case 'hapus-nakes':
+			require_once 'app/nakes/proses/delete.php';
 			break;
 		case 'pasien':
 			require_once 'app/pasien/views/index.php';
@@ -26,29 +26,29 @@ if (isset($_GET['page'])) {
 		case 'hapus-pasien':
 			require_once 'app/pasien/proses/delete.php';
 			break;
-		case 'obat':
-			require_once 'app/obat/views/index.php';
+		case 'diagnosa':
+			require_once 'app/diagnosa/views/index.php';
 			break;
-		case 'tambah-obat':
-			require_once 'app/obat/views/create.php';
+		case 'tambah-diagnosa':
+			require_once 'app/diagnosa/views/create.php';
 			break;
-		case 'edit-obat':
-			require_once 'app/obat/views/edit.php';
+		case 'edit-diagnosa':
+			require_once 'app/diagnosa/views/edit.php';
 			break;
-		case 'hapus-obat':
-			require_once 'app/obat/proses/delete.php';
+		case 'hapus-diagnosa':
+			require_once 'app/diagnosa/proses/delete.php';
 			break;
-		case 'ruang':
-			require_once 'app/ruang/views/index.php';
+		case 'apoteker':
+			require_once 'app/apoteker/views/index.php';
 			break;
-		case 'tambah-ruang':
-			require_once 'app/ruang/views/create.php';
+		case 'tambah-apoteker':
+			require_once 'app/apoteker/views/create.php';
 			break;
-		case 'edit-ruang':
-			require_once 'app/ruang/views/edit.php';
+		case 'edit-apoteker':
+			require_once 'app/apoteker/views/edit.php';
 			break;
-		case 'hapus-ruang':
-			require_once 'app/ruang/proses/delete.php';
+		case 'hapus-apoteker':
+			require_once 'app/apoteker/proses/delete.php';
 			break;
 		case 'rekam-medis':
 			require_once 'app/rekam-medis/views/index.php';
@@ -62,10 +62,17 @@ if (isset($_GET['page'])) {
 		case 'hapus-rekam-medis':
 			require_once 'app/rekam-medis/proses/delete.php';
 			break;
-		case 'lap-rekam-medis':
-			require_once 'app/laporan/views/rekam-medis.php';
+		case 'rekap':
+			require_once 'app/rekap/views/index.php';
 			break;
-	}
+		case 'profil':
+			require_once 'app/profil/views/index.php';
+			break;
+		case 'jadwal':
+			require_once 'app/jadwal/views/index.php';
+			break;
+			
+		}
 } else {
 	require_once 'app/dashboard/views/index.php';
 }

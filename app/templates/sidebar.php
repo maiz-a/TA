@@ -17,7 +17,7 @@
       </li>
 
       <li class="<?php echo is_active('profil'); ?> nav-item">
-        <a href="index.php"><i class="feather icon-home"></i><span class="menu-title">Profil</span></a>
+        <a href="?page=profil"><i class="feather icon-user"></i><span class="menu-title">Profil</span></a>
       </li>
 
       <li class="<?php echo is_active('jadwal'); ?> nav-item"><a href="?page=jadwal"><i class="feather icon-calendar"></i><span class="menu-title" >Jadwal Praktik</span></a>
@@ -30,17 +30,17 @@
         </ul>
 
         <ul class="menu-content">
-          <li class="<?php echo is_active('ruang'); ?>"><a href="?page=ruang"><i class="feather icon-circle"></i><span class="menu-item">Apoteker</span></a>
+          <li class="<?php echo is_active('apoteker'); ?>"><a href="?page=apoteker"><i class="feather icon-circle"></i><span class="menu-item">Apoteker</span></a>
           </li>
         </ul>
 
         <ul class="menu-content">
-          <li class="<?php echo is_active('dokter'); ?>"><a href="?page=dokter"><i class="feather icon-circle"></i><span class="menu-item">Tenaga Kesehatan</span></a>
+          <li class="<?php echo is_active('nakes'); ?>"><a href="?page=nakes"><i class="feather icon-circle"></i><span class="menu-item">Tenaga Kesehatan</span></a>
           </li>
         </ul>
 
         <ul class="menu-content">
-          <li class="<?php echo is_active('obat'); ?>"><a href="?page=obat"><i class="feather icon-circle"></i><span class="menu-item">Diagnosa</span></a>
+          <li class="<?php echo is_active('diagnosa'); ?>"><a href="?page=diagnosa"><i class="feather icon-circle"></i><span class="menu-item">Diagnosa</span></a>
           </li>
         </ul>
 

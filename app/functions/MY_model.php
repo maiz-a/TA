@@ -14,7 +14,7 @@ function get($query)
   }
 
   return $rows;
-}
+}   
 
 function get_where($query)
 {
