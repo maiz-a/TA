@@ -11,7 +11,7 @@
           </ul>
         </div>
         <ul class="nav navbar-nav float-right">
-        <li class="dropdown dropdown-user nav-item" style="margin-top: 30px;" ><i class="feather icon-corner-up-left"></i><a href="?page=beranda">Ke Beranda |</a>
+        <li class="dropdown dropdown-user nav-item" style="margin-top: 30px;" ><i class="feather icon-corner-up-left"></i><a href="?page=profil">Ke Beranda |</a>
           </li>
           <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon feather icon-maximize"></i></a></li>
 
@@ -19,7 +19,7 @@
               <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $_SESSION['user']['username']; ?></span><span class="user-status">Available</span></div><span><img class="round" src="assets/images/portrait/small/avatar-s-11.png" alt="avatar" height="40" width="40" /></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a>
+              <a class="dropdown-item" href="?page=edit_profil"><i class="feather icon-user"></i> Edit Profile</a>
               <a class="dropdown-item" href="<?php echo 'app/auth/logout.php'; ?>"><i class="feather icon-power"></i> Logout</a>
             </div>
           </li>

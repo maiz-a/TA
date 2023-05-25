@@ -23,7 +23,6 @@ if ($row) {
 
 <!-- Main Content -->
 <div id="content">
-
     
     <!-- End of Topbar -->
         <div class="container-fluid">
@@ -33,12 +32,12 @@ if ($row) {
     <div class="table-responsive">
                         <table class="table table-borderless">
                             <tr>
-                                <td><img src="http://sidik.test/img/logo-ulm1.png"></td>
+                                <td><img src="app/img/logo-ulm1.png"></td>
                                 <td class="text-center">
                                     <h6>KLINIK PRATAMA LAMBUNG MANGKURAT MEDICAL CENTER (LMMC)</h6>
                                     <h6>UNIVERSITAS LAMBUNG MANGKURAT</h6>
                                 </td>
-                                <td class="float-right"><img src="http://sidik.test/img/logo-klinik1.png"></td>
+                                <td class="float-right"><img src="app/img/logo-klinik1.png"></td>
                             </tr>
                         </table>
                         <center><h5><u>KARTU RAWAT JALAN</u></h5></center>

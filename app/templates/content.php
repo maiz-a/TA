@@ -23,6 +23,12 @@ if (isset($_GET['page'])) {
 		case 'kartu':
 			require_once 'app/kartu_berobat/index.php';
 			break;
+		case 'update':
+			require_once 'app/profile/proses/update.php';
+			break;
+		case 'cetak_kartu':
+			require_once 'app/kartu_berobat/cetak_kartu.php';
+			break;
 	
 	}
 } else {

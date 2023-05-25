@@ -2,14 +2,28 @@
 require_once 'app/functions/MY_model.php';
 
 ?>
-<!-- User Table -->
-<section id="column-selectors">
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Jadwal Praktik</h4>
-          </div>
+
+<div id="content-wrapper" class="d-flex flex-column">
+
+<!-- Main Content -->
+<div id="content">
+
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-dark bg-info topbar mb-4 static-top shadow">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i style="color: black" class="fa fa-bars"></i>
+        </button>
+
+        <!-- Topbar Search -->
+        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+            <div class="input-group">
+                <h5 style="color: white"><b>Jadwal Praktik</b></h5>
+            </div>
+        </div>
+        <div class="topbar-divider d-none d-sm-block"></div>
+    </nav>
 
           <div class="container-fluid">
         <div class="card shadow mb-4">

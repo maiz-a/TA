@@ -3,7 +3,7 @@ session_start();
 require_once '../functions/MY_model.php';
 require_once '../functions/config.php';
 
-$url = 'http://localhost:8080/aplikasi_pasien/';
+$url = 'http://localhost/TA-pasien/';
 if (isset($_SESSION['user'])) {
   echo '<script>document.location.href="' . $url . '"</script>';
   exit;

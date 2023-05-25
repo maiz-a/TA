@@ -1,8 +1,22 @@
 <?php
 require_once 'app/functions/MY_model.php';
 
-$data = mysqli_query($conn,"SELECT * FROM pasiens WHERE id LIMIT 1");
-while ($pasien= mysqli_fetch_array($data)){
+// Nama pengguna yang masuk
+$username = $_SESSION['user'];
+
+// Query untuk mengambil data pasien berdasarkan nama pengguna
+$query = "SELECT p.*, u.username
+          FROM pasiens p
+          INNER JOIN users u ON p.user_id = u.id
+          WHERE u.username = '" . $username['username'] . "'";
+
+$result = mysqli_query($conn, $query);
+
+// Ambil hasil query
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+// Tampilkan data pasien
+if ($row) {
 
 ?>
 
@@ -21,7 +35,7 @@ while ($pasien= mysqli_fetch_array($data)){
         </div>
         <div class="card-content">
           <div class="card-body">
-          <form action="app/profile/proses/update.php" method="post">
+          <form action="?page=profil" method="post">
               <input type="hidden" name="id" value="<?php echo $pasien['id']; ?>">
               <div class="form-body">
                 <div class="row">
@@ -29,8 +43,8 @@ while ($pasien= mysqli_fetch_array($data)){
     <!-- Dropdown - User Information -->
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
         aria-labelledby="userDropdown">
-        <form id="logout-form" action="http://sidik.test/logout" method="POST">
-        <input type="hidden" name="_token" value="PrSpzJ3JMZVR2y1GUAPf6ifnL86hg94ZwWz67Oii">                                    <button class="dropdown-item" type="submit">
+        <form id="logout-form" action="?page=logout" method="POST">
+           <button class="dropdown-item" type="submit">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </button>
@@ -47,16 +61,14 @@ while ($pasien= mysqli_fetch_array($data)){
 <div class="card-body">
 <div class="about-row row">
 <div class="detail-col col-md-12">
-<form method="POST" action=http://sidik.test/pasien/update/username/3756>
-<input type="hidden" name="_method" value="PATCH">         
-<input type="hidden" name="_token" value="PrSpzJ3JMZVR2y1GUAPf6ifnL86hg94ZwWz67Oii">                  
+<form method="POST" action="app/profile/proses/update_username.php">                          
 <div class="row">
 <div class="col-md-3 col-12">
     <div class="info-list">
         <ul>
             <li>
                 <label class="font-weight-bold text-primary">Username:</label>
-                    <input type="text" name="username" class="form-control " value="pasien" required>
+                    <input type="text" name="username" class="form-control " value="<?= $row['username'] ?>" required>
             </li>
         </ul>
     </div>

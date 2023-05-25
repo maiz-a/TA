@@ -34,6 +34,15 @@ function edit($query)
   return mysqli_affected_rows($conn);
 }
 
+function cetak($query)
+{
+  global $conn;
+
+  $query = mysqli_query($conn, $query);
+
+  return mysqli_affected_rows($conn);
+}
+
 function update($query)
 {
   global $conn;

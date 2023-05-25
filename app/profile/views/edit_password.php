@@ -1,12 +1,22 @@
 <?php
 require_once 'app/functions/MY_model.php';
 
-$pasien = get("SELECT * FROM pasiens p
-                INNER JOIN categories c ON p.category_id = c.id
-                INNER JOIN fakultas f ON p.category_id = f.id
-                INNER JOIN users u ON p.user_id = u.id;");
+// Nama pengguna yang masuk
+$username = $_SESSION['user'];
 
-$title = 'pasien';
+// Query untuk mengambil data pasien berdasarkan nama pengguna
+$query = "SELECT p.*, u.username
+          FROM pasiens p
+          INNER JOIN users u ON p.user_id = u.id
+          WHERE u.username = '" . $username['username'] . "'";
+
+$result = mysqli_query($conn, $query);
+
+// Ambil hasil query
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+// Tampilkan data pasien
+if ($row) {
 
 ?>
 <div class="content-header row">
@@ -24,7 +34,7 @@ $title = 'pasien';
         </div>
         <div class="card-content">
           <div class="card-body">
-          <form action="app/profile/proses/update.php" method="post">
+          <form action="?page=profil" method="post">
               <input type="hidden" name="id" value="<?= $pasien['id']; ?>">
               <div class="form-body">
                 <div class="row">
@@ -34,8 +44,8 @@ $title = 'pasien';
         <div class="card-body">
             <div class="about-row row">
                 <div class="detail-col col-md-12">
-                    <form method="POST" action=http://sidik.test/pasien/update/password/3756>
-                    <input type="hidden" name="_method" value="PATCH">                    <input type="hidden" name="_token" value="PrSpzJ3JMZVR2y1GUAPf6ifnL86hg94ZwWz67Oii">                    <div class="row">
+                    <form method="POST" action="?page=update">
+                    <input type="hidden" name="_method" value="PATCH"><input type="hidden" name="_token" value="PrSpzJ3JMZVR2y1GUAPf6ifnL86hg94ZwWz67Oii">                    <div class="row">
                         <div class="col-md-3 col-12">
                             <div class="info-list">
                                 <ul>
@@ -83,7 +93,7 @@ $title = 'pasien';
                         </span>    
                         <span class="text">Simpan</span>
                     </button>&nbsp;
-                    <a href="?page=profil" class="btn btn-secondary btn-sm">
+                    <a href="?page=update" class="btn btn-secondary btn-sm">
                         <span>
                             <i class="feather icon-x"></i>
                         </span>    
@@ -136,4 +146,5 @@ $title = 'pasien';
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    <?php } ?>
   </div>

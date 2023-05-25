@@ -31,7 +31,7 @@ if ($row) {
                 <div class="card-body">
                   <div class="about-row row">
                     <div class="image-col col-md-4">
-                      <img src="https://sidik.ulm.ac.id/public/foto_profil/admin/default.jpg" alt=""><br><br>
+                      <img src="app/foto_profil/pasien/default.jpg" alt=""><br><br>
                     </div>
                     <div class="detail-col col-md-8">
                       <h2 class="font-weight-bold"><?php echo $row['nama_pasien']; ?></h2>
@@ -55,6 +55,24 @@ if ($row) {
                           </div>
                         </div>
                       </div>
+                      <a href="?page=edit_profil" class="btn btn-primary btn-sm">
+                      <span>
+                        <i class="feather icon-edit"></i>
+                      </span>    
+                      <span class="text">Ubah profil</span>
+                    </a>&nbsp;
+                    <a href="?page=edit_username" class="btn btn-success btn-sm">
+                      <span>
+                        <i class="feather icon-edit"></i>
+                      </span>
+                      <span class="text">Ubah username</span>    
+                    </a>&nbsp;
+                    <a href="?page=edit_password" class="btn btn-danger btn-sm">
+                      <span>
+                        <i class="feather icon-edit"></i>    
+                      </span>
+                      Ubah password
+                    </a>
                     </div>
                   </div>
                 </div>
